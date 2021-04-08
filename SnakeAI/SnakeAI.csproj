@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D7D1314D-3777-4911-B9FD-A1251C5D7296}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>Main</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SnakeAI.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\GUI\ButtonGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\MainMenuGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\PlaytestGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\PlaytestResultsDetailsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\TrainSnakeGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Logic\AI\EndGameInfo.cs" />
+    <Compile Include="Classes\Logic\AI\FitnessCalculatorRecording.cs" />
+    <Compile Include="Classes\Logic\AI\FitnessRoundInfo.cs" />
+    <Compile Include="Classes\GUI\ContantsGUI.cs" />
+    <Compile Include="Classes\GUI\HiddenNeuronControlGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\ListedGeneticSettingsGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\ListedGeneticSettingsGUI.Designer.cs" />
+    <Compile Include="Classes\GUI\ListedNetworkSettingsGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\ListedSettingsGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\ListedSnakeSettingsGUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\SettingItemGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\SettingItemGUI.Designer.cs" />
+    <Compile Include="Classes\GUI\SettingsGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Logic\AI\SnakeFitnessCalculator.cs" />
+    <Compile Include="Classes\Logic\Playtest\EndTestInfo.cs" />
+    <Compile Include="Classes\Logic\Playtest\PlaytestRecording.cs" />
+    <Compile Include="Classes\Logic\Playtest\PlaytestReplay.cs" />
+    <Compile Include="Classes\Logic\Playtest\PlaytestResult.cs" />
+    <Compile Include="Classes\Logic\Playtest\PlaytestResults.cs" />
+    <Compile Include="Classes\Logic\Playtest\PlaytestRoundInfo.cs" />
+    <Compile Include="Classes\Logic\Playtest\TestResult.cs" />
+    <Compile Include="Classes\Logic\Playtest\Playtest.cs" />
+    <Compile Include="Classes\Logic\Playtest\SnakePlayTestSimulator.cs" />
+    <Compile Include="Classes\Logic\Playtest\TestType.cs" />
+    <Compile Include="Classes\Logic\ProgramSettings.cs" />
+    <Compile Include="Classes\Logic\SnakeAISettings.cs" />
+    <Compile Include="Classes\Logic\AI\SnakeReplay.cs" />
+    <Compile Include="Classes\Logic\Program.cs" />
+    <Compile Include="Classes\Logic\AI\SnakeCauseOfDeath.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GeneticAlgorithm\GeneticAlgorithmNS.csproj">
+      <Project>{ec589dfa-7d5d-4a3f-b8eb-0ab3a1618c90}</Project>
+      <Name>GeneticAlgorithmNS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelperMethods\HelperMethods.csproj">
+      <Project>{b8c38777-12be-4e81-bd9f-367c6914147e}</Project>
+      <Name>HelperMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LevelEditorNS\LevelEditorNS.csproj">
+      <Project>{15a114a3-48c5-44bf-a084-88e43a032ca8}</Project>
+      <Name>LevelEditorNS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeuralNetwork\NeuralNetworkNS.csproj">
+      <Project>{579780aa-c768-4708-8909-1cb905ef1d1c}</Project>
+      <Name>NeuralNetworkNS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnakeGame\SnakeGameNS.csproj">
+      <Project>{d261d70c-5d6a-438b-ab53-eb58efcf2e81}</Project>
+      <Name>SnakeGameNS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

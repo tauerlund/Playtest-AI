@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC589DFA-7D5D-4A3F-B8EB-0AB3A1618C90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GeneticAlgorithmNS</RootNamespace>
+    <AssemblyName>GeneticAlgorithmNS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Logic\AgentStorageManager.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Crossover methods\OnePointCombineCrossoverElitism.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Factories\CrossoverMethods.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Factories\MutationMethods.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Crossover methods\OnePointCombineCrossover.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Crossover methods\OnePointCombineCrossoverRegular.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Factories\SelectionMethods.cs" />
+    <Compile Include="Classes\Logic\Agent.cs" />
+    <Compile Include="Classes\Logic\Chromosome.cs" />
+    <Compile Include="Classes\Logic\ConvergenceCalculator.cs" />
+    <Compile Include="Classes\Logic\Gene.cs" />
+    <Compile Include="Classes\Logic\GeneticAlgorithm.cs" />
+    <Compile Include="Classes\Logic\GeneticConstants.cs" />
+    <Compile Include="Classes\GUI\FitnessGraph.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\GUI\GeneticGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\Logic\GeneticOperators\Selection methods\RouletteWheelSelector.cs" />
+    <Compile Include="Classes\Logic\GeneticSettings.cs" />
+    <Compile Include="Classes\Logic\TopKAgent.cs" />
+    <Compile Include="Interfaces\IAgentViewer.cs" />
+    <Compile Include="Classes\Logic\SavedAgent.cs" />
+    <Compile Include="Classes\Logic\TopKAgents.cs" />
+    <Compile Include="Interfaces\ICrossover.cs" />
+    <Compile Include="Interfaces\IFitnessCalculator.cs" />
+    <Compile Include="Interfaces\IFitnessInfo.cs" />
+    <Compile Include="Interfaces\IGeneticOperator.cs" />
+    <Compile Include="Interfaces\IMutator.cs" />
+    <Compile Include="Interfaces\ISelector.cs" />
+    <Compile Include="Classes\Logic\Population.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Mutation methods\RandomResettingMutator.cs" />
+    <Compile Include="Classes\Logic\GeneticOperators\Selection methods\TopPerformersSelector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Classes\GUI\GeneticGUI.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelperMethods\HelperMethods.csproj">
+      <Project>{b8c38777-12be-4e81-bd9f-367c6914147e}</Project>
+      <Name>HelperMethods</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeuralNetwork\NeuralNetworkNS.csproj">
+      <Project>{579780aa-c768-4708-8909-1cb905ef1d1c}</Project>
+      <Name>NeuralNetworkNS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnakeGame\SnakeGameNS.csproj">
+      <Project>{d261d70c-5d6a-438b-ab53-eb58efcf2e81}</Project>
+      <Name>SnakeGameNS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
